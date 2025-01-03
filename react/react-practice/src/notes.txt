@@ -1,0 +1,8 @@
+#shouldComponentUpdate --> this method is like holder which comes before render() and componentDidUpdate() if shouldComponentUpdate is true then only this two method will run if it is false then this two methods will not run
+
+#componentDidUpdate --> when any state changes then render() again runs thus after that componentDidUpdate will run you can put your swiper initialisation in here if you want
+
+#componentDidMount --> this method run after render() and runs only one time
+
+#componentWillUnmount --> this method works as clean up method as when component is unmounting means take example of this {count > 0 ? <FormattedDate/>: null} in here when count again becomes 0 then this <FormattedDate/> will run componentWillUnmount() method on mounting component again then componentDidMount() will also get executed again
+

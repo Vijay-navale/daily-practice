@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .carousel_wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: fit-content;
+        margin: auto;
+        position: relative;
+      }
+      .carousel_main_wrapper {
+        width: 225px;
+        height: 225px;
+        text-align: center;
+        overflow: hidden;
+      }
+      .carousel_img_wrapper {
+        display: flex;
+        transition: 0.3s all;
+      }
+      button {
+        cursor: pointer;
+      }
+      .prev,
+      .next {
+        position: absolute;
+        left: -30px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .next {
+        right: -30px;
+        left: initial;
+      }
+      .carousel_slide {
+        width: 100%;
+      }
+      .pagination {
+        margin-top: 10px;
+      }
+      .pagination span {
+        width: 10px;
+        height: 10px;
+        background-color: grey;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 3px;
+        cursor: pointer;
+      }
+      span.active {
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="carousel_wrapper">
+      <div class="carousel_main_wrapper">
+        <div class="carousel_img_wrapper" id="carouselImgWrapper"></div>
+      </div>
+      <button class="prev" id="prev"><</button>
+      <button class="next" id="next">></button>
+      <div class="pagination" id="pagination"></div>
+      <div>
+        <label for="infiniteScroll">Infinite scroll</label>
+        <input type="checkbox" id="infiniteScroll" />
+      </div>
+      <div>
+        <label for="autoplay">Autoplay</label>
+        <input type="checkbox" id="autoplay" />
+      </div>
+      <div>
+        <label for="autoplayInterval">Autoplay Interval</label>
+        <input
+          type="range"
+          name="autoplayInterval"
+          id="autoplayInterval"
+          min="1000"
+          max="5000"
+          value="3000"
+          step="1000"
+          disabled
+        />
+      </div>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
