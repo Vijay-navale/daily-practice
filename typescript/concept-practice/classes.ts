@@ -1,4 +1,4 @@
-console.log('test')
+console.log('test2')
 class Department {
   protected employees: string[] = [];
 
