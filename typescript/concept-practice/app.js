@@ -1,8 +1,17 @@
 //generic
+var countAndDescribe = function (element) {
+    var descText = "Got no value";
+    if (element.length > 0) {
+        descText = "Got ".concat(element.length, " elements");
+    }
+    return [element, descText];
+};
+countAndDescribe(["", ""]);
+countAndDescribe("test");
 function merge(obj1, obj2) {
     return Object.assign(obj1, obj2);
 }
-var mergeObj = merge({ name: "max" }, { age: 2 });
+var mergeObj = merge({ age: 2 }, { name: "max" });
 console.log("mergeObj.name", mergeObj.name);
 // const names: Array<string> = [];
 // // index types
