@@ -1,4 +1,4 @@
-//generic
+//generic test
 var countAndDescribe = function (element) {
     var descText = "Got no value";
     if (element.length > 0) {
