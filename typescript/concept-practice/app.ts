@@ -1,5 +1,12 @@
 //generic
 
+const Logger = (constructor: any) => {
+  console.log('logger')
+}
+@Logger
+class Person{
+
+}
 interface lengthy {
   length: number;
 }
@@ -17,7 +24,7 @@ function merge<T extends object, U extends object>(obj1: T, obj2: U) {
   return Object.assign(obj1, obj2);
 }
 const mergeObj = merge({ age: 2 }, { name: "max" });
-console.log("mergeObj.name", mergeObj.name);
+// console.log("mergeObj.name", mergeObj.name);
 
 // const names: Array<string> = [];
 
