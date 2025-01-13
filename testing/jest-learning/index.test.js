@@ -1,8 +1,53 @@
-const { myForEach } = require("./index");
+const { getChangedFilesForRoots } = require("./index");
+// const { getChangedFilesForRoots } = require("jest-changed-files");
+getChangedFilesForRoots(["./"], {
+  lastCommit: true,
+}).then((result) => console.log("result.changedFiles-==", result.changedFiles));
+test("sdfsd", () => {});
+// const axios = require("axios");
 
 /**
  * mock functions
  */
+// console.log("-=-=", jest.mock("./index"));
+// test("testing mock", () => {
+//   expect(bar()).toBe("b");
+// });
+// const myMockFn = jest
+//   .fn(() => "default")
+//   .mockImplementationOnce(() => "first call")
+//   .mockImplementationOnce(() => "second call");
+
+// console.log(myMockFn(), myMockFn(), myMockFn(), myMockFn());
+// jest.mock("./index", () => {
+//   const originalMod = jest.requireActual("./index");
+//   console.log("originalModp0---", originalMod);
+//   return {
+//     __esModule: true,
+//     ...originalMod,
+//     foo: "mocked foo",
+//     bar: jest.fn(() => "mocked bar"),
+//   };
+// });
+// test("testing mock partials", () => {
+//   console.log("foo0-0-0-", foo);
+//   expect(foo).toBe("mocked foo");
+//   expect(bar()).toBe("mocked bar");
+// });
+
+// jest.mock("axios");
+// test("should fetch users", async () => {
+//   const users = [{ name: "Bob" }];
+//   const resp = { data: users };
+//   axios.get.mockResolvedValue(resp);
+//   try {
+//     const data = await Users.all();
+//     expect(data).toEqual(users);
+//     console.log("data=-=--", data);
+//   } catch (err) {
+//     console.log("err-=--", err);
+//   }
+// });
 
 // const mockCallback = jest.fn((x) => x);
 // test("forEach mock function", () => {

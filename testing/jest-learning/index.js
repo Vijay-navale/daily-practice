@@ -1,3 +1,27 @@
+const axios = require("axios");
+const { getChangedFilesForRoots } = require("jest-changed-files");
+const { diff } = require("jest-diff");
+const a = { a: { b: { c: 5 } } };
+const b = { a: { b: { c: 6 } } };
+
+const result = diff(a, b);
+
+// print diff
+console.log("diff", result);
+
+// getChangedFilesForRoots(["./"], {
+//   lastCommit: true,
+// }).then((result) => console.log("result.changedFiles-==", result.changedFiles));
+
+const foo = "foo";
+const bar = () => "bar";
+
+class Users {
+  static all() {
+    return axios.get("/users.json").then((resp) => resp.data);
+  }
+}
+
 const myForEach = (items, callback) => {
   for (const item of items) {
     callback(item);
@@ -15,4 +39,11 @@ const fetchData = (callback) => {
     }, 0);
   });
 };
-module.exports = { sum, fetchData, myForEach };
+module.exports = {
+  sum,
+  fetchData,
+  myForEach,
+  Users,
+  foo,
+  bar,
+};
