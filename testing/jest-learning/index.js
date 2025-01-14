@@ -4,6 +4,16 @@ const { diff } = require("jest-diff");
 const a = { a: { b: { c: 5 } } };
 const b = { a: { b: { c: 6 } } };
 
+const request = () =>
+  new Promise((resolve, _) => {
+    console.log("actual insidee");
+    resolve("actual resolve");
+  });
+
+const getUserName = (userID) => {
+  return request(`/users/${userID}`).then((user) => "abc");
+};
+
 const result = diff(a, b);
 
 // print diff
@@ -46,4 +56,6 @@ module.exports = {
   Users,
   foo,
   bar,
+  getUserName,
+  request,
 };

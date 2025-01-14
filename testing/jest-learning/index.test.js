@@ -1,9 +1,37 @@
-const { getChangedFilesForRoots } = require("./index");
+const { getUserName } = require("./index");
 // const { getChangedFilesForRoots } = require("jest-changed-files");
-getChangedFilesForRoots(["./"], {
-  lastCommit: true,
-}).then((result) => console.log("result.changedFiles-==", result.changedFiles));
-test("sdfsd", () => {});
+// import renderer from "react-test-renderer";
+// import Link from "./Link";
+jest.mock("./index", () => {
+  const originalMod = jest.requireActual("./index");
+  const mockFn = jest.requireActual("./__mocks__/request.js");
+  console.log("mockFn", mockFn);
+  return {
+    __esModule: true,
+    ...originalMod,
+    request: jest.fn(() => {
+      console.log("yoo");
+    }),
+  };
+});
+it("works with promises", async () => {
+  const data = await getUserName(22312);
+  expect(data).toBe("dummy resolve");
+});
+/**
+ * snapshot testing
+ */
+// it("renders correctly", () => {
+//   const tree = renderer
+//     .create(<Link page="http://www.instagram.com">Facebook</Link>)
+//     .toJSON();
+//   expect(tree).toMatchSnapshot();
+// });
+
+// getChangedFilesForRoots(["./"], {
+//   lastCommit: true,
+// }).then((result) => console.log("result.changedFiles-==", result.changedFiles));
+// test("sdfsd", () => {});
 // const axios = require("axios");
 
 /**
