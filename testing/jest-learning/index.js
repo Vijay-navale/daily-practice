@@ -4,20 +4,22 @@ const { diff } = require("jest-diff");
 const a = { a: { b: { c: 5 } } };
 const b = { a: { b: { c: 6 } } };
 
-const request = () =>
-  new Promise((resolve, _) => {
-    console.log("actual insidee");
+const request = () => {
+  console.log("actual insidee");
+  return new Promise((resolve, _) => {
     resolve("actual resolve");
   });
+};
 
 const getUserName = (userID) => {
+  console.log("caalling ?");
   return request(`/users/${userID}`).then((user) => "abc");
 };
 
-const result = diff(a, b);
+// const result = diff(a, b);
 
 // print diff
-console.log("diff", result);
+// console.log("diff", result);
 
 // getChangedFilesForRoots(["./"], {
 //   lastCommit: true,
