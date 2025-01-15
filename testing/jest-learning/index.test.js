@@ -1,27 +1,30 @@
-// https://github.com/kentcdodds/react-testing-library-course/tree/main/src
-jest.mock("./index", () => {
-  const originalMod = jest.requireActual("./index");
-  // const mockFn = jest.requireActual("./__mocks__/request.js");
-  console.log("originalMod", originalMod);
-  return {
-    __esModule: true,
-    ...originalMod,
-    request: jest.fn(() => {
-      console.log("yoo");
-      return new Promise();
-    }),
-  };
-});
+/**
+ * learning resource - https://github.com/kentcdodds/react-testing-library-course/tree/main/src
+ */
 
-const { getUserName } = require("./index");
+// jest.mock("./index", () => {
+//   const originalMod = jest.requireActual("./index");
+//   // const mockFn = jest.requireActual("./__mocks__/request.js");
+//   console.log("originalMod", originalMod);
+//   return {
+//     __esModule: true,
+//     ...originalMod,
+//     request: jest.fn(() => {
+//       console.log("yoo");
+//       return new Promise();
+//     }),
+//   };
+// });
 
-describe("getUserName", () => {
-  it("should call the mocked request function", async () => {
-    const result = await getUserName(1);
-    // expect(result).toBe("abc");
-    // expect(require("./index").request).toHaveBeenCalledWith("/users/1");
-  });
-});
+// const { getUserName } = require("./index");
+
+// describe("getUserName", () => {
+//   it("should call the mocked request function", async () => {
+//     const result = await getUserName(1);
+//     // expect(result).toBe("abc");
+//     // expect(require("./index").request).toHaveBeenCalledWith("/users/1");
+//   });
+// });
 // jest.mock("./index");
 
 // const { getUserName } = require("./index");
